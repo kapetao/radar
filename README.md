@@ -14,7 +14,7 @@ Three focus pillars:
 src/
   collectors/  Python collectors — ingest public data, write JSON snapshots
   analysis/    Python analysis — statistics/trends over the snapshots
-  data/        curated rules + watchlists (seed) and snapshots/ (collector output)
+  data/        curated rules + watchlists (seed); snapshots/ is the data-science-large submodule
   ui/          vanilla JS static pages → GitHub Pages
   docs/        documentation
 ```
@@ -34,8 +34,9 @@ Scheduled GitHub Actions run the collectors → write `src/data/snapshots/` → 
 ## Quick start
 
 ```bash
-python src/collectors/crawler.py --out src/data/snapshots   # collect
-python -m http.server -d src/ui                             # preview UI
+git submodule update --init --recursive                    # fetch assets + snapshots
+python src/collectors/crawler.py --out src/data/snapshots  # collect (writes into the submodule)
+python -m http.server -d src/ui                            # preview UI
 ```
 
 See the issue backlog for the roadmap.
