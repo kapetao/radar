@@ -3,4 +3,4 @@
 	url = https://github.com/kapetim/ui-assets.git
 [submodule "src/data/snapshots"]
 	path = src/data/snapshots
-	url = https://github.com/kapetim/datasets.git
+	url = https://github.com/kapetim/database.git
