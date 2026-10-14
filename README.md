@@ -14,7 +14,7 @@ Three focus pillars:
 src/
   collectors/  Python collectors — ingest public data, write JSON snapshots
   analysis/    Python analysis — statistics/trends over the snapshots
-  data/        curated rules + watchlists (seed); snapshots/ is the data-science-large submodule
+  data/        curated rules + watchlists (seed); snapshots/ mounts the datasets repo (data-science namespace)
   ui/          vanilla JS static pages → GitHub Pages
   docs/        documentation
 ```
@@ -35,7 +35,7 @@ Scheduled GitHub Actions run the collectors → write `src/data/snapshots/` → 
 
 ```bash
 git submodule update --init --recursive                    # fetch assets + snapshots
-python src/collectors/crawler.py --out src/data/snapshots  # collect (writes into the submodule)
+python src/collectors/crawler.py --out src/data/snapshots/data-science  # collect (writes into the submodule)
 python -m http.server -d src/ui                            # preview UI
 ```
 

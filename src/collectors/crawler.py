@@ -10,6 +10,9 @@ Snapshot layout (mirrors the static site's data dir):
     <out_dir>/markets/movements.json
     <out_dir>/news/brazil.json
     <out_dir>/news/tech.json
+
+where <out_dir> is the data-science namespace inside the shared `datasets`
+repo (mounted at src/data/snapshots/data-science).
 """
 from __future__ import annotations
 
@@ -37,7 +40,7 @@ def collect(category: str) -> list[dict]:
 
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--out", default="src/data/snapshots", help="snapshot output dir")
+    parser.add_argument("--out", default="src/data/snapshots/data-science", help="snapshot output dir")
     args = parser.parse_args()
 
     out_dir = Path(args.out)
